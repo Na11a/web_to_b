@@ -1,7 +1,6 @@
-import { React, useState } from "react";
+import { React, } from "react";
 import { Card, Button } from "antd";
 import Size from "./Size";
-import ModalProduct from "./ModalProduct";
 const { Meta } = Card;
 
 const ProductCard = ({ product }) => {

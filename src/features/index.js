@@ -1,3 +1,3 @@
-import { getProducts, AddPizza } from "./catchData";
+import { getProducts, AddPizza, getProduct } from "./catchData";
 
-export { getProducts, AddPizza };
+export { getProducts, AddPizza, getProduct };

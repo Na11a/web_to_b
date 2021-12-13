@@ -1,7 +1,5 @@
 import { React, useState } from "react";
-import {Cart} from 'antd'
 import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 import AddProductForm from "./AddProductForm"
 
 const ModalProduct = ({ product,closeModel }) => {

@@ -1,23 +1,28 @@
 import { React, useEffect, useState } from "react";
-import { getProducts } from "../features";
+import { useDispatch, useSelector } from "react-redux";
 import ProductCard from "../components/ProductCard";
-import ModalProduct from "../components/ModalProduct"
-import {List,Button} from 'antd'
+import { fetchPizzas } from "../store/asyncActions/pizzas";
+import ModalProduct from "../components/ModalProduct";
+import { List, Button } from "antd";
+import { Link } from "react-router-dom";
+import {DropDownSort} from '../components'
 
 const Home = (props) => {
+  const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const showModalForm = () => {
     setShowModal(true);
   };
-  const [products, setProducts] = useState([]);
   useEffect(() => {
-    getProducts().then((data) => setProducts(data));
+    dispatch(fetchPizzas());
   }, []);
+  const products = useSelector((state) => state.pizzas.pizzas);
   return (
     <div>
+      <DropDownSort products={products} />
       {products && (
         <List
-        bordered
+          bordered
           grid={{
             gutter: 18,
             xs: 1,
@@ -29,14 +34,17 @@ const Home = (props) => {
           }}
           dataSource={products}
           renderItem={(product) => (
-            <List.Item>
-              <ProductCard product={product}>Card content</ProductCard>
-            </List.Item>
+            <Link to={`${product.id}`}>
+              <List.Item>
+                <ProductCard product={product}>Card content</ProductCard>
+              </List.Item>
+            </Link>
           )}
         />
       )}
-      <Button onClick={()=>showModalForm()}>Add new Pizza </Button>
-      {showModal && <ModalProduct closeModel={setShowModal}/>}
+
+      <Button onClick={() => showModalForm()}>Add new Pizza </Button>
+      {showModal && <ModalProduct closeModel={setShowModal} />}
     </div>
   );
 };
