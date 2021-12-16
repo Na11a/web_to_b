@@ -1,0 +1,33 @@
+div#pizzas{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  padding: 100px 50px;
+  position: relative;
+}
+div#pizzas .pizza-card{
+  margin-bottom: 30px;
+  width:250px;
+  background-color: rgba(150, 150, 150, 0.5);
+  border-radius: 30px;
+}
+div#pizzas .pizza-card:hover{
+  transform: scale(1.2);
+}
+div#pizzas .pizza-card h3{
+  text-align: center;
+}
+div#pizzas .pizza-card ul p{
+    display: inline;
+    margin-right: 30px;
+}
+div#pizzas .pizza-card .price {
+  text-align: center;
+}
+div#pizzas .pizza-card button.delete{
+  margin-left: 160px;
+}
+div#pizzas .pizza-card button.edit{
+  position: static;
+
+}

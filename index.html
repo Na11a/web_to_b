@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <name>TodoList</name>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='card.css'>
+
+</head>
+<body>
+  <header>
+    <h2>Pizza shop</h2>
+    <button type="button" id="summaryButton" name="button">Summary price</button>
+    <p id="summary"></p>
+<hr>
+    <button type="button" id="sortBySquare" name="button">Sort By Square</button>
+<hr>
+<div class="searchInput">
+  <label>Search your Pizza</label>
+  <br>
+  <input type="text" id="searchInput" name="name" placeholder="name" value="">
+</div>
+
+
+  </header>
+<div id="pizzas">
+
+</div>
+<form class="" name="pizza" action="index.html" method="post">
+  <form name="pizza">
+       <input type="text" name="name" placeholder="name" required oninvalid="this.setCustomValidity('Input name name')" oninput="setCustomValidity('')">
+       <input type="text" name="count" placeholder="count">
+       <input type="number" name="price" placeholder="price">
+       <input type="number" name="width" placeholder="width">
+       <input type="number" name="height" placeholder="height">
+       <button type="submit">Add</button>
+   </form>
+</form>
+</body>
+<script src='main.js' type="module"></script>
+<script type="text/javascript" src="buttons.js"></script>
+
+</script>
+</html>
