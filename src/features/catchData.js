@@ -8,9 +8,14 @@ const getProducts = () => {
 const AddPizza = (pizza) => {
   return axios.post("http://localhost:8000/products/", pizza);
 };
-const getProduct = (id) =>{
+const getProduct = (id) => {
   return axios
-  .get(`http://localhost:8000/product/${id}/`)
-  .then(response => response.data)
-}
-export { AddPizza, getProducts,getProduct };
+    .get(`http://localhost:8000/product/${id}/`)
+    .then((response) => response.data);
+};
+const getProductByFilter = (price) => {
+  return axios
+    .get(`http://localhost:8000/products/?min_price=${price}`)
+    .then((response) => response.data.products);
+};
+export { AddPizza, getProducts, getProduct, getProductByFilter };

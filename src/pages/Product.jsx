@@ -9,7 +9,6 @@ const Product = (props) => {
   useEffect(() => {
     getProduct(id).then((product) => setProduct(product));
   }, []);
-  console.log(product);
   return (
     <div>
       {product && (

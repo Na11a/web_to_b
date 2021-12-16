@@ -5,32 +5,40 @@ import { fetchPizzas } from "../store/asyncActions/pizzas";
 import ModalProduct from "../components/ModalProduct";
 import { List, Button } from "antd";
 import { Link } from "react-router-dom";
-import {DropDownSort} from '../components'
+import { Spin } from "antd";
 
-const Home = (props) => {
+const Home = ({ pizzas }) => {
+  const initPizzas = 2;
+  const loadPizzas = 3;
   const dispatch = useDispatch();
+  const [spinning, setSpinning] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
+  const [products, setProducts] = useState([]);
+  useEffect(() => {
+    setSpinning(true);
+    const timer = setTimeout(() => {
+      setProducts(pizzas.slice(0, products.length + loadPizzas));
+      setSpinning(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, [loading]);
+
+  const clickLoadMore = () => {
+    setLoading(!loading);
+  };
   const showModalForm = () => {
     setShowModal(true);
   };
-  useEffect(() => {
-    dispatch(fetchPizzas());
-  }, []);
-  const products = useSelector((state) => state.pizzas.pizzas);
+
   return (
     <div>
-      <DropDownSort products={products} />
       {products && (
         <List
           bordered
           grid={{
             gutter: 18,
-            xs: 1,
-            sm: 2,
-            md: 4,
-            lg: 8,
-            xl: 6,
-            xxl: 6,
+            column: loadPizzas,
           }}
           dataSource={products}
           renderItem={(product) => (
@@ -42,7 +50,8 @@ const Home = (props) => {
           )}
         />
       )}
-
+      <Spin spinning={spinning} />
+      <Button onClick={clickLoadMore}>Load More</Button>
       <Button onClick={() => showModalForm()}>Add new Pizza </Button>
       {showModal && <ModalProduct closeModel={setShowModal} />}
     </div>

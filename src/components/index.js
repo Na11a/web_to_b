@@ -4,3 +4,4 @@ export { default as Size } from "./Size";
 export { default as ProductInfo } from "./ProductInfo";
 export { default as ProductComments } from "./ProductComments";
 export { default as DropDownSort } from "./DropDownSort";
+export {default as Header} from './Header'

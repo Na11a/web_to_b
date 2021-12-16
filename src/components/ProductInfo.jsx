@@ -24,12 +24,6 @@ const ProductInfo = ({ product }) => {
           </ListGroup.Item>
           <ListGroup.Item>count = {product.count}</ListGroup.Item>
         </ListGroup>
-        <Card.Footer
-          style={{ display: "flex", justifyContent: "space-around" }}
-        >
-          <Button>Delete</Button>
-          <Button>Edit</Button>
-        </Card.Footer>
       </Card>
     </div>
   );
